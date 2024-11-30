@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glenn Mark Cruz - Front-End Developer</title>
+    <meta name="description" content="Glenn Mark Cruz - Front-End Developer specializing in creating dynamic and responsive web applications">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components/header.css">
+    <link rel="stylesheet" href="css/components/hero.css">
+    <link rel="stylesheet" href="css/components/about.css">
+    <link rel="stylesheet" href="css/components/skills.css">
+    <link rel="stylesheet" href="css/components/projects.css">
+    <link rel="stylesheet" href="css/components/contact.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">GMC</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Glenn Mark Cruz</span></h1>
+                <div class="typewriter-container">
+                    <span id="typewriter"></span>
+                </div>
+                <p class="hero-description">
+                    A passionate Front-End Developer focused on building dynamic and responsive web applications
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Let's Connect</a>
+                </div>
+            </div>
+            <div class="hero-background"></div>
+        </section>
+
+        <section id="about" class="about" data-aos="fade-up">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a dedicated Front-End Developer with a Bachelor's degree in Information Technology from Don Bosco College Canlubang. My journey in web development began out of a curiosity about how websites function and has evolved into a deep commitment to creating intuitive and responsive web applications.</p>
+                    <p>Currently, I am focused on mastering HTML, CSS, and JavaScript, alongside React.js, to craft seamless, user-friendly interfaces that balance both design and functionality, with the goal of delivering engaging and effective digital experiences.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/profile3.png" alt="Glenn Mark Cruz" class="profile-image">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills" data-aos="fade-up">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Front-End Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                            <div class="skill-bar" data-level="95"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                            <div class="skill-bar" data-level="80"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                            <div class="skill-bar" data-level="75"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-sass"></i>
+                            <span>SASS/SCSS</span>
+                            <div class="skill-bar" data-level="30"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <span>Bootstrap</span>
+                            <div class="skill-bar" data-level="50"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React.js</span>
+                            <div class="skill-bar" data-level="40"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Development Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                            <div class="skill-bar" data-level="70"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-npm"></i>
+                            <span>npm</span>
+                            <div class="skill-bar" data-level="78"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-terminal"></i>
+                            <span>Command Line</span>
+                            <div class="skill-bar" data-level="50"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Version Control</span>
+                            <div class="skill-bar" data-level="50"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Additional Skills</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Responsive Design</span>
+                            <div class="skill-bar" data-level="80"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-universal-access"></i>
+                            <span>Web Accessibility</span>
+                            <div class="skill-bar" data-level="70"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Performance Optimization</span>
+                            <div class="skill-bar" data-level="65"></div>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-search"></i>
+                            <span>SEO Basics</span>
+                            <div class="skill-bar" data-level="20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects" data-aos="fade-up">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project1.PNG" alt="RFID Attendance System">
+                    </div>
+                    <div class="project-content">
+                        <h3>RFID Attendance System</h3>
+                        <p>An automated attendance monitoring system using RFID technology and real-time tracking</p>
+                        <div class="project-tags">
+                            <span>Php</span>
+                            <span>Html</span>
+                            <span>RFID</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Live</a>
+                            <a href="#" class="btn secondary small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project2.PNG" alt="Automotive Lighting Game">
+                    </div>
+                    <div class="project-content">
+                        <h3>Automotive Lighting Game</h3>
+                        <p>An interactive game application teaching automotive lighting systems through practical scenarios</p>
+                        <div class="project-tags">
+                            <span>React.js</span>
+                            <span>Three.js</span>
+                            <span>WebGL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Live</a>
+                            <a href="#" class="btn secondary small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project3.PNG" alt="Chess Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <h3>Chess Game</h3>
+                        <p>An interactive chess game application where users can play chess with a simple, intuitive interface. Built with real-time move validation and game state management.</p>
+                        <div class="project-tags">
+                            <span>Html</span>
+                            <span>Css</span>
+                            <span>JavaScript</span>
+                            <span>Chess.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Live</a>
+                            <a href="#" class="btn secondary small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project4.PNG" alt="Note-taking">
+                    </div>
+                    <div class="project-content">
+                        <h3>Elegant Notes</h3>
+                        <p>A sleek and minimalist note-taking web application that allows users to create, view, and delete notes effortlessly. Perfect for jotting down ideas, tasks, or personal thoughts.
+
+                        </p>
+                        <div class="project-tags">
+                            <span>Html</span>
+                            <span>Css</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Live</a>
+                            <a href="#" class="btn secondary small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project5.PNG" alt="Reservation calendar">
+                    </div>
+                    <div class="project-content">
+                        <h3>Resort Reservation Calendar</h3>
+                        <p>user-friendly web application that allows resorts to manage reservations efficiently. The calendar is divided into AM and PM time slots for each day, making it easy to track and book stays in a streamlined interface.</p>
+                        <div class="project-tags">
+                            <span>Html</span>
+                            <span>Css</span>
+                            <span>JavaScript</span>
+                            <span>Php</span>
+                            <span>mySQL</span>
+                           
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Live</a>
+                            <a href="#" class="btn secondary small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/project6.PNG" alt="Type Master">
+                    </div>
+                    <div class="project-content">
+                        <h3>Type Master</h3>
+                        <p> interactive typing practice web application designed for typing enthusiasts to improve their speed and accuracy. Track your progress with real-time stats and challenges.</p>
+                        <div class="project-tags">
+                            <span>Html</span>
+                            <span>Css</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn small">View Live</a>
+                            <a href="#" class="btn secondary small">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="contact" data-aos="fade-up">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Glenn Mark Cruz. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
