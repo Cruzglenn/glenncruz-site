@@ -1,0 +1,123 @@
+<html><head><base href="/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game by Glenn Mark C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+    </head>
+    <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full space-y-4">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold mb-2">Chess Game</h1>
+                <p class="text-gray-400 italic mb-6">Created by Glenn Mark C</p>
+            </div>
+            <div class="grid grid-cols-8 gap-0.5 bg-gray-700 p-2 rounded-lg max-w-md mx-auto" id="board">
+            </div>
+            <div class="text-center space-y-2">
+                <p id="status" class="text-xl font-semibold">White to move</p>
+                <button id="resetBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                    Reset Game
+                </button>
+            </div>
+        </div>
+    
+    <script>
+    const board = document.getElementById('board');
+    const status = document.getElementById('status');
+    const resetBtn = document.getElementById('resetBtn');
+    let game = new Chess();
+    let selectedSquare = null;
+    
+    // Create the board
+    function createBoard() {
+        board.innerHTML = '';
+        for (let i = 0; i < 64; i++) {
+            const row = Math.floor(i / 8);
+            const col = i % 8;
+            const square = document.createElement('div');
+            square.id = `${String.fromCharCode(97 + col)}${8 - row}`;
+            square.className = `w-full pb-[100%] relative ${(row + col) % 2 === 0 ? 'bg-amber-200' : 'bg-amber-800'}
+                hover:opacity-90 cursor-pointer transition-opacity`;
+            square.addEventListener('click', () => handleSquareClick(square.id));
+            board.appendChild(square);
+            updateSquare(square.id);
+        }
+    }
+    
+    // Update a single square
+    function updateSquare(squareId) {
+        const square = document.getElementById(squareId);
+        const piece = game.get(squareId);
+        square.innerHTML = '';
+        if (piece) {
+            const pieceDiv = document.createElement('div');
+            pieceDiv.className = 'absolute inset-0 flex items-center justify-center text-3xl';
+            pieceDiv.textContent = getPieceSymbol(piece);
+            square.appendChild(pieceDiv);
+        }
+    }
+    
+    // Get Unicode symbol for chess piece
+    function getPieceSymbol(piece) {
+        const symbols = {
+            'p': '♟', 'n': '♞', 'b': '♝', 'r': '♜', 'q': '♛', 'k': '♚',
+            'P': '♙', 'N': '♘', 'B': '♗', 'R': '♖', 'Q': '♕', 'K': '♔'
+        };
+        return symbols[piece.type.toLowerCase()];
+    }
+    
+    // Handle square clicks
+    function handleSquareClick(squareId) {
+        if (selectedSquare === null) {
+            const piece = game.get(squareId);
+            if (piece && piece.color === (game.turn() === 'w' ? 'w' : 'b')) {
+                selectedSquare = squareId;
+                document.getElementById(squareId).classList.add('bg-green-500');
+            }
+        } else {
+            const move = {
+                from: selectedSquare,
+                to: squareId,
+                promotion: 'q'
+            };
+    
+            try {
+                game.move(move);
+                createBoard();
+                updateStatus();
+            } catch (e) {
+                // Invalid move
+            }
+    
+            document.getElementById(selectedSquare).classList.remove('bg-green-500');
+            selectedSquare = null;
+        }
+    }
+    
+    // Update game status
+    function updateStatus() {
+        let statusText = '';
+        if (game.in_checkmate()) {
+            statusText = `Checkmate! ${game.turn() === 'w' ? 'Black' : 'White'} wins!`;
+        } else if (game.in_draw()) {
+            statusText = 'Game Over - Draw';
+        } else if (game.in_check()) {
+            statusText = `${game.turn() === 'w' ? 'White' : 'Black'} is in check`;
+        } else {
+            statusText = `${game.turn() === 'w' ? 'White' : 'Black'} to move`;
+        }
+        status.textContent = statusText;
+    }
+    
+    // Reset game
+    resetBtn.addEventListener('click', () => {
+        game = new Chess();
+        selectedSquare = null;
+        createBoard();
+        updateStatus();
+    });
+    
+    // Initialize the game
+    createBoard();
+    </script>
+    </body></html>

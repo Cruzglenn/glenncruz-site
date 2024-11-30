@@ -1,0 +1,278 @@
+<html><head><base href="." />
+    <title>TypeMaster - Glenn Mark C</title>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #1a1a1a;
+      font-family: 'Roboto Mono', monospace;
+      color: #FFD700;
+    }
+    
+    .container {
+      width: 800px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #FFD700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #FFD700;
+      padding-bottom: 10px;
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      color: #FFD700;
+    }
+    
+    .text-display {
+      font-size: 1.5em;
+      line-height: 1.5;
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      min-height: 120px;
+      order: 2;
+      border: 1px solid #FFD700;
+    }
+    
+    .word {
+      display: inline-block;
+      margin-right: 8px;
+    }
+    
+    .correct {
+      color: #FFD700;
+    }
+    
+    .incorrect {
+      color: #ff5252;
+      text-decoration: underline;
+    }
+    
+    .current {
+      background: #3a3a3a;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+    
+    .input-area {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2em;
+      background: #2a2a2a;
+      border: 2px solid #FFD700;
+      border-radius: 8px;
+      color: #FFD700;
+      font-family: 'Roboto Mono', monospace;
+      order: 1;
+      margin-bottom: 20px;
+    }
+    
+    .input-area:focus {
+      outline: 2px solid #FFD700;
+    }
+    
+    .restart-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #2a2a2a;
+      border: 2px solid #FFD700;
+      border-radius: 4px;
+      color: #FFD700;
+      cursor: pointer;
+      font-size: 1em;
+      transition: all 0.3s;
+      order: 3;
+    }
+    
+    .restart-btn:hover {
+      background: #FFD700;
+      color: #1a1a1a;
+    }
+    
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: #FFD700;
+      margin-left: 2px;
+      animation: cursor-blink 1s infinite;
+      vertical-align: middle;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+      <div class="header">TypeMaster - Glenn Mark C</div>
+      <div class="stats">
+        <div>WPM: <span id="wpm">0</span></div>
+        <div>Accuracy: <span id="accuracy">100%</span></div>
+        <div>Time: <span id="time">60</span>s</div>
+      </div>
+      <input type="text" class="input-area" id="input-area" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <div class="text-display" id="text-display"></div>
+      <button class="restart-btn" id="restart-btn">Restart Test</button>
+    </div>
+    
+    <script>
+    const words = [
+      "the", "be", "to", "of", "and", "a", "in", "that", "have", "I", 
+      "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+      "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
+      "or", "an", "will", "my", "one", "all", "would", "there", "their", "what",
+      "so", "up", "out", "if", "about", "who", "get", "which", "go", "me"
+    ];
+    
+    class TypingTest {
+      constructor() {
+        this.textDisplay = document.getElementById('text-display');
+        this.inputArea = document.getElementById('input-area');
+        this.restartBtn = document.getElementById('restart-btn');
+        this.wpmDisplay = document.getElementById('wpm');
+        this.accuracyDisplay = document.getElementById('accuracy');
+        this.timeDisplay = document.getElementById('time');
+        
+        this.currentWordIndex = 0;
+        this.startTime = null;
+        this.timer = null;
+        this.timeLeft = 60;
+        this.correctCharacters = 0;
+        this.totalCharacters = 0;
+        
+        this.init();
+      }
+      
+      init() {
+        this.generateText();
+        this.addEventListeners();
+      }
+      
+      generateText() {
+        this.words = [...Array(50)].map(() => words[Math.floor(Math.random() * words.length)]);
+        this.textDisplay.innerHTML = this.words
+          .map((word, i) => `<span class="word ${i === 0 ? 'current' : ''}">${word}</span>`)
+          .join('');
+      }
+      
+      addEventListeners() {
+        this.inputArea.addEventListener('input', () => this.handleInput());
+        this.restartBtn.addEventListener('click', () => this.restart());
+      }
+      
+      handleInput() {
+        if (!this.startTime) {
+          this.startTime = new Date();
+          this.startTimer();
+        }
+        
+        const currentWord = this.words[this.currentWordIndex];
+        const typedValue = this.inputArea.value;
+        
+        const wordElement = this.textDisplay.querySelectorAll('.word')[this.currentWordIndex];
+        if (typedValue && currentWord.startsWith(typedValue)) {
+          wordElement.classList.remove('incorrect');
+          wordElement.classList.add('current');
+        } else if (typedValue) {
+          wordElement.classList.add('incorrect');
+          wordElement.classList.add('current');
+        }
+        
+        if (typedValue.endsWith(' ')) {
+          this.totalCharacters += currentWord.length;
+          
+          if (typedValue.trim() === currentWord) {
+            this.correctCharacters += currentWord.length;
+          }
+          
+          this.currentWordIndex++;
+          this.inputArea.value = '';
+          
+          if (this.currentWordIndex === this.words.length) {
+            this.finish();
+            return;
+          }
+          
+          this.updateDisplay();
+        }
+      }
+      
+      updateDisplay() {
+        const wordElements = this.textDisplay.querySelectorAll('.word');
+        wordElements.forEach((word, i) => {
+          word.className = 'word';
+          if (i === this.currentWordIndex) {
+            word.classList.add('current');
+          } else if (i < this.currentWordIndex) {
+            word.classList.add('correct');
+          }
+        });
+      }
+      
+      calculateWPM() {
+        const timeElapsed = (new Date() - this.startTime) / 1000 / 60;
+        return Math.round((this.correctCharacters / 5) / timeElapsed);
+      }
+      
+      calculateAccuracy() {
+        return Math.round((this.correctCharacters / this.totalCharacters) * 100) || 100;
+      }
+      
+      startTimer() {
+        this.timer = setInterval(() => {
+          this.timeLeft--;
+          this.timeDisplay.textContent = this.timeLeft;
+          
+          if (this.timeLeft === 0) {
+            this.finish();
+          }
+        }, 1000);
+      }
+      
+      finish() {
+        clearInterval(this.timer);
+        this.inputArea.disabled = true;
+        this.wpmDisplay.textContent = this.calculateWPM();
+        this.accuracyDisplay.textContent = this.calculateAccuracy() + '%';
+      }
+      
+      restart() {
+        clearInterval(this.timer);
+        this.currentWordIndex = 0;
+        this.startTime = null;
+        this.timeLeft = 60;
+        this.correctCharacters = 0;
+        this.totalCharacters = 0;
+        this.inputArea.value = '';
+        this.inputArea.disabled = false;
+        this.timeDisplay.textContent = '60';
+        this.wpmDisplay.textContent = '0';
+        this.accuracyDisplay.textContent = '100%';
+        this.generateText();
+      }
+    }
+    
+    new TypingTest();
+    </script>
+    </body></html>
