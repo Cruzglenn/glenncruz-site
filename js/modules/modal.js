@@ -7,18 +7,18 @@ export function initModal() {
         return;
     }
 
-    // Open modal and apply zoom effect
+    // Open modal and apply zoom effect when image is clicked
     document.querySelectorAll('.project-image img').forEach(image => {
         image.addEventListener('click', function () {
-            modal.classList.add('show'); // Add class for zoom effect
-            modal.style.display = 'flex'; // Show modal
+            modal.classList.add('show'); // Show modal with zoom effect
+            modal.style.display = 'flex'; // Display modal
             modalImg.src = this.src; // Set clicked image as modal content
         });
     });
 
     // Close modal when clicking outside the image
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) { // Ensure it's not a click on the image itself
+        if (e.target === modal) { // Ensure it's a click outside the image itself
             closeModal();
         }
     });
@@ -30,9 +30,8 @@ export function initModal() {
         }
     });
 
-    // Function to close modal with smooth effect
+    // Function to close modal with smooth fade-out
     function closeModal() {
-        modalImg.style.opacity = '0'; // Optional: smooth fade-out for the image
         modal.classList.remove('show'); // Remove zoom class
         setTimeout(() => {
             modal.style.display = 'none'; // Hide modal after transition

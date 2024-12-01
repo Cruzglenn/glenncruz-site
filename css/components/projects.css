@@ -81,10 +81,12 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    display: flex; /* Center the content */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+    display: flex; /* Center modal content */
     align-items: center;
     justify-content: center;
+    opacity: 0; /* Initially invisible for fade-in effect */
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
 }
 
 /* Modal image */
@@ -93,14 +95,18 @@
     max-height: 80%;
     border-radius: 10px;
     transform: scale(0); /* Start small (zoom out) */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth zoom-in and fade-in */
-    opacity: 0; /* Start invisible for fade-in effect */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth zoom-in/fade-in */
+    opacity: 0; /* Start invisible */
 }
 
-/* Modal open state */
+/* Show modal with zoom effect */
+.modal.show {
+    opacity: 1; /* Modal becomes visible */
+}
+
 .modal.show .modal-content {
-    transform: scale(1); /* Zoom to normal size */
-    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom image to normal size */
+    opacity: 1; /* Make image visible */
 }
 
 /* Responsive adjustments */
