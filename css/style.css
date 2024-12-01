@@ -246,8 +246,7 @@ body {
     text-align: center;
     padding: 2rem;
     background-color: var(--text-color);
-    color: rgb(210, 188, 21);
-    outline: 1px solid red;
+    color: white;
 }
 
 /* Responsive Design */
