@@ -68,7 +68,7 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -241,12 +241,12 @@ body {
     color: var(--primary-color);
 }
 
-/* Footer */
 .footer {
     text-align: center;
     padding: 2rem;
     background-color: var(--text-color);
     color: white;
+    margin: 0; 
 }
 
 /* Responsive Design */
