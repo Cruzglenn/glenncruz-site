@@ -6,18 +6,20 @@ const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+    // Collect form data
     const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
         message: document.getElementById('message').value
     };
 
     // Send the form data using EmailJS
     try {
-        const response = await emailjs.send('service_5a4kuyn', 'template_s4l6xrf', formData);
+        // Replace 'service_5a4kuyn' with your Service ID and 'template_wrzsu2h' with your Template ID
+        const response = await emailjs.send('service_5a4kuyn', 'template_wrzsu2h', formData);
         console.log('Message sent successfully:', response);
         
-        // Clear form
+        // Clear form after sending
         contactForm.reset();
         
         // Show success message
