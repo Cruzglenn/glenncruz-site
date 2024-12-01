@@ -6,36 +6,35 @@ export function initModal() {
         console.error('Modal elements not found!');
         return;
     }
-
-    // Open modal and apply zoom effect when image is clicked
+ 
     document.querySelectorAll('.project-image img').forEach(image => {
         image.addEventListener('click', function () {
-            modal.classList.add('show'); // Show modal with zoom effect
-            modal.style.display = 'flex'; // Display modal
-            modalImg.src = this.src; // Set clicked image as modal content
+            modal.classList.add('show'); 
+            modal.style.display = 'flex'; 
+            modalImg.src = this.src; 
         });
     });
 
-    // Close modal when clicking outside the image
+    
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) { // Ensure it's a click outside the image itself
+        if (e.target === modal) { 
             closeModal();
         }
     });
 
-    // Close modal with Escape key
+ 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('show')) {
             closeModal();
         }
     });
 
-    // Function to close modal with smooth fade-out
+    
     function closeModal() {
-        modal.classList.remove('show'); // Remove zoom class
+        modal.classList.remove('show'); 
         setTimeout(() => {
-            modal.style.display = 'none'; // Hide modal after transition
-            modalImg.src = ''; // Clear the image source
-        }, 300); // Match transition duration in CSS
+            modal.style.display = 'none'; 
+            modalImg.src = ''; 
+        }, 300); 
     }
 }
