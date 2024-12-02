@@ -1,7 +1,23 @@
 /* General project section styles */
+:root {
+    --background-color: #f0f0f0;
+    --section-spacing: 2rem;
+    --container-width: 1200px;
+    --card-background: #fff;
+    --text-color: #333;
+    --accent-color: #007BFF;
+    --transition: all 0.3s ease;
+}
+
 .projects {
     background-color: var(--background-color);
     padding: var(--section-spacing) 0;
+    text-align: center;
+}
+
+.projects h2 {
+    margin-bottom: 2rem;
+    color: #333;
 }
 
 .project-grid {
@@ -18,13 +34,11 @@
     height: 400px; /* Maintain the original height */
     background: #07182E;
     position: relative;
-    display: flex;
-    flex-direction: column; /* Adjust to column for better layout */
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
-    padding: 20px; /* Add some padding for content */
+    color: white; /* Ensure text is visible */
 }
 
 .project-card:hover {
@@ -35,9 +49,9 @@
 .project-card::before {
     content: '';
     position: absolute;
-    width: 100px;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
-    height: 130%;
     animation: rotBGimg 3s linear infinite;
     transition: all 0.2s linear;
     z-index: 0; /* Ensure it's behind the content */
@@ -67,6 +81,7 @@
     overflow: hidden;
     position: relative;
     z-index: 2; /* Ensure the image is above the background */
+    margin-bottom: 1rem; /* Add some space between image and content */
 }
 
 .project-image img {
@@ -77,14 +92,18 @@
 }
 
 .project-content {
-    padding: 1.5rem;
+    padding: 1rem; /* Adjust padding for content */
     position: relative;
     z-index: 2; /* Ensure the content is above the background */
 }
 
 .project-content h3 {
     margin-bottom: 0.5rem;
-    color: var(--text-color);
+    font-size: 1.5em; /* Adjust font size for better visibility */
+}
+
+.project-content p {
+    margin-bottom: 1rem; /* Add some space between paragraphs */
 }
 
 .project-tags {
@@ -106,6 +125,19 @@
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+}
+
+.project-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: #0056b3; /* Darkened accent color for hover */
 }
 
 /* Custom button styles */
