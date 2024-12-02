@@ -21,15 +21,29 @@ export function initContactForm() {
             return;
         }
 
+        // Get reCAPTCHA token (v3)
+        const token = await grecaptcha.execute('6LeBSpAqAAAAAECKa_9-LgRtj7zecAlHB0bb9x43', { action: 'submit' });
+
+        if (!token) {
+            Swal.fire({
+                title: "Error",
+                text: "reCAPTCHA verification failed. Please try again.",
+                icon: "error",
+                confirmButtonText: "Okay",
+            });
+            return;
+        }
+
         try {
-            // Send email via EmailJS
+            // Send email via EmailJS, including the reCAPTCHA token
             await emailjs.send(
-                "service_pkv15vq", // Replace with your actual Service ID
-                "template_cqz5nll", // Replace with your actual Template ID
+                "service_pkv15vq", // Your Service ID
+                "template_cqz5nll", // Your Template ID
                 {
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
+                    recaptcha_token: token, // Send the reCAPTCHA token
                 }
             );
 
