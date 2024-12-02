@@ -18,5 +18,5 @@ contactForm.addEventListener('submit', async (e) => {
     contactForm.reset();
     
     // Show success message
-    alert('Thank you for your message! I will get back to you soon.');
+    alert('Thank you for your message! I will get back to you soon ingat ka.');
 });
