@@ -1,4 +1,4 @@
-/* eto yung original */
+/* General project section styles */
 .projects {
     background-color: var(--background-color);
     padding: var(--section-spacing) 0;
@@ -14,11 +14,17 @@
 }
 
 .project-card {
-    background-color: var(--card-background);
-    border-radius: 10px;
+    width: 300px; /* Maintain the original width */
+    height: 400px; /* Maintain the original height */
+    background: #07182E;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Adjust to column for better layout */
     overflow: hidden;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
+    padding: 20px; /* Add some padding for content */
 }
 
 .project-card:hover {
@@ -26,10 +32,41 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+.project-card::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    height: 130%;
+    animation: rotBGimg 3s linear infinite;
+    transition: all 0.2s linear;
+    z-index: 0; /* Ensure it's behind the content */
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    background: #07182E;
+    inset: 5px;
+    border-radius: 15px;
+    z-index: 1; /* Ensure it's behind the content but above the background */
+}
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .project-image {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
+    z-index: 2; /* Ensure the image is above the background */
 }
 
 .project-image img {
@@ -41,6 +78,8 @@
 
 .project-content {
     padding: 1.5rem;
+    position: relative;
+    z-index: 2; /* Ensure the content is above the background */
 }
 
 .project-content h3 {
