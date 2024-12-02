@@ -32,25 +32,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Intersection Observer for button animations
-const buttonObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible'); // Add visible class when in view
-            entry.target.classList.remove('hidden'); // Remove hidden class
-        } else {
-            // Optional: Uncomment below to reset when out of view
-            // entry.target.classList.remove('visible');
-            // entry.target.classList.add('hidden');
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-// Observe all buttons with the "button" class
-document.querySelectorAll('.button').forEach(button => {
-    button.classList.add('hidden'); // Add hidden class initially
-    buttonObserver.observe(button);
-});
