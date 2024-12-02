@@ -1,5 +1,3 @@
-import Swal from 'sweetalert2';
-
 export function initContactForm() {
     const contactForm = document.getElementById('contactForm');
 
@@ -19,20 +17,11 @@ export function initContactForm() {
             // Clear form
             contactForm.reset();
             
-            // Show success message using SweetAlert2
-            Swal.fire({
-                title: 'Thank you!',
-                text: 'I will get back to you soon.',
-                icon: 'success'
-            });
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
         } catch (error) {
             console.error('Error submitting form:', error);
-            // Show error message using SweetAlert2
-            Swal.fire({
-                title: 'Oops...',
-                text: 'There was an error sending your message. Please try again.',
-                icon: 'error'
-            });
+            alert('There was an error sending your message. Please try again.');
         }
     });
 }
