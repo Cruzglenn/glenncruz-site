@@ -1,7 +1,8 @@
 .footer {
-    background-color: var(--text-color);
-    color: rgb(164, 9, 9);
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 2rem 0;
+    border-top: 1px solid rgba(255, 165, 0, 0.1);
 }
 
 .footer-content {
@@ -19,7 +20,7 @@
 }
 
 .footer-links a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     transition: var(--transition);
 }
