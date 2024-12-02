@@ -68,21 +68,8 @@
     gap: 1rem;
     margin-top: 1rem;
 }
-.project-links .button.slide-in {
-    animation: slide-in 0.6s ease-out forwards;
-}
 
-@keyframes slide-in {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-/* Button styles with animation and gradient effect */
+/* Custom button styles */
 .project-links .button {
     position: relative;
     width: auto;
@@ -98,14 +85,6 @@
     text-decoration: none;
     font-size: 0.9rem;
     cursor: pointer;
-    opacity: 1; /* Hidden by default */
-    transform: translateY(20px); /* Start below view */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.project-links .button.visible {
-    opacity: 1;
-    transform: translateY(0); /* Reset position when visible */
 }
 
 .project-links .button::before {
