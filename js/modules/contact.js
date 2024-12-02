@@ -10,24 +10,14 @@ export function initContactForm() {
             message: document.getElementById('message').value.trim(),
         };
 
+        // Get the reCAPTCHA response token
+        const recaptchaToken = grecaptcha.getResponse();
+
         // Validation (optional)
-        if (!formData.name || !formData.email || !formData.message) {
+        if (!formData.name || !formData.email || !formData.message || !recaptchaToken) {
             Swal.fire({
                 title: "Error",
-                text: "All fields are required!",
-                icon: "error",
-                confirmButtonText: "Okay",
-            });
-            return;
-        }
-
-        // Get reCAPTCHA token (v3)
-        const token = await grecaptcha.execute('6LdxUpAqAAAAAOh1FsHjGWoH9LOKW4UqtAJ_KgFM', { action: 'submit' });
-
-        if (!token) {
-            Swal.fire({
-                title: "Error",
-                text: "reCAPTCHA verification failed. Please try again.",
+                text: "All fields are required and reCAPTCHA must be completed!",
                 icon: "error",
                 confirmButtonText: "Okay",
             });
@@ -43,7 +33,7 @@ export function initContactForm() {
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
-                    recaptcha_token: token, // Send the reCAPTCHA token
+                    recaptcha_token: recaptchaToken, // Send the reCAPTCHA response token
                 }
             );
 
