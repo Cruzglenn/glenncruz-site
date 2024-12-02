@@ -22,7 +22,7 @@ export function initContactForm() {
         }
 
         // Get reCAPTCHA token (v3)
-        const token = await grecaptcha.execute('6LeBSpAqAAAAAECKa_9-LgRtj7zecAlHB0bb9x43', { action: 'submit' });
+        const token = await grecaptcha.execute('6LdxUpAqAAAAAOh1FsHjGWoH9LOKW4UqtAJ_KgFM', { action: 'submit' });
 
         if (!token) {
             Swal.fire({
