@@ -4,10 +4,8 @@ export function initViewLive() {
     viewLiveButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
             event.preventDefault(); // Prevent default anchor redirection
+            const url = button.getAttribute("data-url");
 
-            const url = button.getAttribute("data-url"); // Get URL from data attribute
-
-            // Show loading prompt
             Swal.fire({
                 title: "Loading...",
                 html: "Please wait while we prepare the live view.",
@@ -15,10 +13,9 @@ export function initViewLive() {
                 didOpen: () => {
                     Swal.showLoading();
                 },
-                timer: 2000, // Loading duration (2 seconds)
+                timer: 2000,
                 timerProgressBar: true,
             }).then(() => {
-                // After loading, show confirmation dialog
                 Swal.fire({
                     title: "Are you sure?",
                     text: "You will be redirected to the live view page.",
@@ -28,7 +25,6 @@ export function initViewLive() {
                     cancelButtonText: "No, stay here",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Redirect to the specified URL
                         window.location.href = url;
                     } else {
                         console.log("User canceled the redirection.");
