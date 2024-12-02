@@ -3,6 +3,8 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+        } else {
+            entry.target.classList.remove('active'); // Optional: Remove active class when out of view
         }
     });
 }, {
@@ -31,4 +33,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
         }
     });
+});
+
+// Observe all buttons with the class 'button' for mobile animations
+document.querySelectorAll('.project-links .button').forEach((button) => {
+    observer.observe(button);
 });

@@ -85,6 +85,7 @@
     text-decoration: none;
     font-size: 0.9rem;
     cursor: pointer;
+    transition: none; /* Remove transition for mobile */
 }
 
 .project-links .button::before {
@@ -101,6 +102,7 @@
     z-index: -10;
     pointer-events: none;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotate(0deg); /* Initial state */
 }
 
 .project-links .button::after {
@@ -113,16 +115,32 @@
     filter: blur(20px);
 }
 
-.project-links .button:hover::after {
-    filter: blur(30px);
-}
-
-.project-links .button:hover::before {
+.project-links .button.active::before {
     transform: rotate(-180deg);
 }
 
-.project-links .button:active::before {
-    scale: 0.7;
+.project-links .button.active::after {
+    filter: blur(30px);
+}
+
+/* Media queries for larger screens */
+@media (min-width: 769px) {
+    .project-links .button {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-links .button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-links .button:hover::before {
+        transform: rotate(-180deg);
+    }
+
+    .project-links .button:hover::after {
+        filter: blur(30px);
+    }
 }
 
 /* Modal styles */
