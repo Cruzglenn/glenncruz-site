@@ -11,8 +11,15 @@ export function initContactForm() {
         };
 
         try {
-            // Add your form submission logic here
-            console.log('Form submitted:', formData);
+            await emailjs.send(
+                "service_pkv15vq", // Service ID
+                "template_cqz5nll", // Template ID
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                }
+            );
             
             // Clear form
             contactForm.reset();
