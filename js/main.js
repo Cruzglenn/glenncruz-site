@@ -4,7 +4,6 @@ import { initNavigation } from './modules/navigation.js';
 import { initContactForm } from './modules/contact.js';
 import { initSkillBars } from './modules/skills.js';
 import { initModal } from './modules/modal.js';
-import { initViewLive } from './modules/viewLive.js';
 
 // Initialize AOS
 AOS.init({
@@ -35,5 +34,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSkillBars();
     initModal(); 
-    initViewLive();
 });
