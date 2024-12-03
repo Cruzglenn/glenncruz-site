@@ -1,0 +1,54 @@
+/* Loading Spinner Animation */
+.spinner-container {
+    width: 150px;
+    height: 150px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 9999;
+  }
+  
+  .spinner {
+    position: absolute;
+    width: calc(100% - 9.9px);
+    height: calc(100% - 9.9px);
+    border: 5px solid transparent;
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 5s cubic-bezier(0.17, 0.49, 0.96, 0.79) infinite;
+  }
+  
+  .loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    z-index: 9998;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  .loader-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .spinner-container {
+      width: 100px;
+      height: 100px;
+    }
+  }

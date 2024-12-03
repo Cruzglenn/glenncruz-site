@@ -1,80 +1,79 @@
 .contact {
-    padding: var(--section-spacing) 0;
-    background-color: var(--background-color);
-  }
-  
-  .contact-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  .contact-form {
-    display: grid;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-  
-  .form-group {
-    position: relative;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: var(--transition);
-    background-color: white;
-  }
-  
-  .form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-  }
-  
-  .form-group label {
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    color: #666;
-    transition: var(--transition);
-    pointer-events: none;
-    background-color: white;
-    padding: 0 0.5rem;
-  }
-  
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-  }
-  
-  .form-group input:focus ~ label,
-  .form-group textarea:focus ~ label,
-  .form-group input:valid ~ label,
-  .form-group textarea:valid ~ label {
-    transform: translateY(-1.5rem) scale(0.8);
-    color: var(--primary-color);
-  }
-  
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .social-icon {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    transition: var(--transition);
-  }
-  
-  .social-icon:hover {
-    color: var(--primary-color);
-    transform: translateY(-3px);
-  }
-  
+  padding: var(--section-spacing) 0;
+  background-color: var(--background-color);
+}
+
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: white;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: #666;
+  transition: var(--transition);
+  pointer-events: none;
+  background-color: white;
+  padding: 0 0.5rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group input:valid ~ label,
+.form-group textarea:valid ~ label {
+  transform: translateY(-1.5rem) scale(0.8);
+  color: var(--primary-color);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.social-icon:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}

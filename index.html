@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/components/contact.css" />
     <link rel="stylesheet" href="css/components/footer.css" />
     <link rel="stylesheet" href="css/components/theme-toggle.css" />
+    <link rel="stylesheet" href="css/components/loader.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link
       rel="stylesheet"
@@ -29,6 +30,23 @@
     />
   </head>
   <body>
+    <!-- Loader -->
+    <div class="loader-overlay">
+      <div class="spinner-container">
+        <div class="spinner">
+          <div class="spinner">
+            <div class="spinner">
+              <div class="spinner">
+                <div class="spinner">
+                  <div class="spinner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header class="header">
       <nav class="nav-container">
         <div class="logo">GMC</div>
@@ -54,7 +72,6 @@
     </header>
 
     <main>
-      <!-- Rest of the HTML content remains exactly the same -->
       <section id="home" class="hero">
         <div class="hero-content">
           <h1>Hi, I'm <span class="highlight">Glenn Mark Cruz</span></h1>
@@ -406,6 +423,7 @@
         </div>
       </div>
     </footer>
+    
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
