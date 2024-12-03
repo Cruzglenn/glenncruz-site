@@ -1,0 +1,110 @@
+/* Theme Toggle Button */
+.theme-toggle {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    margin-left: 1rem;
+    border-radius: 24px;
+    border: none;
+    background: var(--toggle-bg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--toggle-icon-bg);
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle.light::before {
+    transform: translateX(24px);
+  }
+  
+  .theme-toggle i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle .fa-sun {
+    right: 6px;
+    color: #ffd700;
+    opacity: 0;
+  }
+  
+  .theme-toggle .fa-moon {
+    left: 6px;
+    color: #ffffff;
+    opacity: 1;
+  }
+  
+  .theme-toggle.light .fa-sun {
+    opacity: 1;
+  }
+  
+  .theme-toggle.light .fa-moon {
+    opacity: 0;
+  }
+  
+  /* Theme Variables */
+  [data-theme='light'] {
+    --background-color: #f8f9fa;
+    --text-color: #1a1a1a;
+    --card-background: #ffffff;
+    --primary-color: #ffc107;
+    --secondary-color: #ff9800;
+    --accent-color: #f1f3f5;
+    --toggle-bg: #1a1a1a;
+    --toggle-icon-bg: #ffffff;
+    --heading-color: #1a1a1a;
+    --card-text: #1a1a1a;
+    --card-border: #e9ecef;
+    --button-text: #1a1a1a;
+    --input-border: #ced4da;
+    --input-text: #1a1a1a;
+    --input-placeholder: #6c757d;
+    --skill-bar-bg: #e9ecef;
+    --skill-bar-fill: #ffc107;
+    --tag-bg: #f8f9fa;
+    --tag-text: #1a1a1a;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-theme='dark'] {
+    --background-color: #1a1d21;
+    --text-color: #f8f9fa;
+    --card-background: #22262a;
+    --primary-color: #ffc107;
+    --secondary-color: #ff9800;
+    --accent-color: #2a2e32;
+    --toggle-bg: #f8f9fa;
+    --toggle-icon-bg: #1a1d21;
+    --heading-color: #ffffff;
+    --card-text: #f8f9fa;
+    --card-border: #2a2e32;
+    --button-text: #1a1d21;
+    --input-border: #2a2e32;
+    --input-text: #f8f9fa;
+    --input-placeholder: #adb5bd;
+    --skill-bar-bg: #2a2e32;
+    --skill-bar-fill: #ffc107;
+    --tag-bg: #2a2e32;
+    --tag-text: #f8f9fa;
+    --nav-bg: rgba(26, 29, 33, 0.95);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Global Theme Transition */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
