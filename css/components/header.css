@@ -58,13 +58,13 @@
   left: 0;
   width: 0;
   background: var(--color-gar);
-  background-image: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+  background-image: linear-gradient(90deg,#03a9f4,#198306,#ffeb3b,#03a9f4);
   -webkit-background-clip: text;
   background-clip: text;
   background-size: 200%;
   overflow: hidden;
-  transition: all 1s;
-  animation: ani 8s linear infinite;
+  transition: all 0.3s ease;
+  animation: ani 5s linear infinite;
   border-bottom: 2px solid transparent;
 }
 
@@ -98,6 +98,7 @@
   background-color: var(--text-color);
   margin: 5px 0;
   transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
