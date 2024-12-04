@@ -6,12 +6,12 @@
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
@@ -39,10 +39,10 @@
 
 @keyframes fillBar {
   from {
-    width: 0;
+      width: 0;
   }
   to {
-    width: var(--width);
+      width: var(--width);
   }
 }
 
@@ -64,4 +64,23 @@
 .social-icon:hover {
   transform: translateY(-3px);
   color: var(--primary-color);
+}
+
+/* Skill Category Shine Effect */
+@keyframes shine {
+  0% {
+      background-position: -200% center;
+  }
+  100% {
+      background-position: 200% center;
+  }
+}
+
+.skill-category {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-category::after {
+  animation: shine 8s ease-in-out infinite;
 }
