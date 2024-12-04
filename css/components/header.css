@@ -114,7 +114,7 @@
     background-color: var(--nav-bg);
     width: 100%;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     padding: 2rem;
     margin-right: 0;
   }
