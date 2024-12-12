@@ -7,6 +7,8 @@ import { initModal } from './modules/modal.js';
 import { initTheme } from './modules/theme.js';
 import { initLoader } from './modules/loader.js';
 import { initProjectLinks } from './modules/projects.js';
+import { initParallax } from './modules/parallax.js';
+import { initSlideIn } from './modules/slideIn.js';
 
 // Initialize AOS
 AOS.init({
@@ -31,7 +33,7 @@ new Typed('#typewriter', {
     loop: true
 });
 
-// Initialize modules
+// Initialize all modules
 document.addEventListener('DOMContentLoaded', () => {
     initLoader();
     initNavigation();
@@ -40,4 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initModal();
     initTheme();
     initProjectLinks();
+    initParallax();
+    initSlideIn();
 });
