@@ -1,0 +1,12 @@
+/* Enhanced parallax styles */
+[data-parallax] {
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+}
+
+.profile-image {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition: transform 0.1s ease-out;
+}

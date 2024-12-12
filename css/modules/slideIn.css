@@ -1,0 +1,31 @@
+/* Enhanced slide-in animations */
+[data-slide] {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-slide].slide-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Different slide directions */
+[data-slide="right"] {
+    transform: translateX(50px);
+}
+
+[data-slide="up"] {
+    transform: translateY(50px);
+}
+
+[data-slide="down"] {
+    transform: translateY(-50px);
+}
+
+/* Delay variations for staggered animations */
+[data-slide-delay="1"] { transition-delay: 0.1s; }
+[data-slide-delay="2"] { transition-delay: 0.2s; }
+[data-slide-delay="3"] { transition-delay: 0.3s; }
+[data-slide-delay="4"] { transition-delay: 0.4s; }
+[data-slide-delay="5"] { transition-delay: 0.5s; }
